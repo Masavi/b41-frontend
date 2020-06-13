@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
 import {
   Collapse,
   Navbar,
@@ -16,6 +17,7 @@ import {
 
 const Navigation = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { token } = useContext(AuthContext);
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -50,7 +52,7 @@ const Navigation = (props) => {
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
+          <NavbarText>{ token }</NavbarText>
         </Collapse>
       </Navbar>
     </div>
