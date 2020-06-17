@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import {
   Button,  
   Form,  
@@ -40,8 +41,14 @@ const Signup = () => {
       email,
       password,
     }
-    console.log(jsonSend);
-    alert('Successful signup');
+    // Hacer una peticion POST al backend para registrar un usuario
+    try {
+      await axios.post('https://cinta-negra-backend.herokuapp.com/api/v1/register', jsonSend);
+      alert('Successful signup');
+    } catch (error) {
+      alert('Error');
+    }
+    
   }
 
   return (
