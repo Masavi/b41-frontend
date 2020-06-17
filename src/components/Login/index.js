@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { Redirect } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import axios from 'axios';
 import {
@@ -10,9 +11,11 @@ import {
 } from 'reactstrap';
 
 const Login = () => {
-  const { setTokenInLocalStorage } = useContext(AuthContext);
+  const { setTokenInLocalStorage, isAuth } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  if (isAuth) return <Redirect to="/" />
 
   const handleSubmit = async (e) => {
     e.preventDefault();
