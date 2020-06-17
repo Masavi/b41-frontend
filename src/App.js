@@ -1,17 +1,32 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+
+// Components
 import Navigation from './components/Navigation';
-import Prueba from './components/Prueba';
+import Footer from './components/Footer';
+
+// Contexts
 import AuthContextProvider from './contexts/AuthContext';
+
+// Misc
+import { Container } from 'reactstrap';
+import { BrowserRouter as Router, Switch } from "react-router-dom";
+import Routes from './Routes';
 
 function App() {
   return (
-    <React.Fragment>
-      <AuthContextProvider>
-        <Navigation />
-        <h1>Hola Mundo</h1>
-        <Prueba />
-      </AuthContextProvider>
-    </React.Fragment>
+    <Fragment>
+      <Router>
+        <AuthContextProvider>
+            <Navigation />
+            <Container className="mt-4">
+              <Switch>
+                { Routes }
+              </Switch>
+            </Container>
+            <Footer />
+        </AuthContextProvider>
+      </Router>
+    </Fragment>
   );
 }
 
