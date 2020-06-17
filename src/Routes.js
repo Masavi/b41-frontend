@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import Signup from './components/Signup';
+import UsersList from './components/UsersList';
 
 export default
   <React.Fragment>
@@ -21,5 +22,8 @@ export default
     <Route
       exact path="/signup"
       component={ Signup } />
+    <Route
+      exact path="/users"
+      component={ UsersList } />
   </React.Fragment>
 ;

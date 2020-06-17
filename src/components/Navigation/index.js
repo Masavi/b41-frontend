@@ -47,6 +47,9 @@ const Navigation = () => {
     <Collapse isOpen={isOpen} navbar>
       <Nav className="mr-auto" navbar>
         <NavItem>
+          <NavLink tag={Link} to="/users">Usuarios</NavLink>
+        </NavItem>
+        <NavItem>
           <NavLink tag={Link} to="/logout">Logout</NavLink>
         </NavItem>
       </Nav>
