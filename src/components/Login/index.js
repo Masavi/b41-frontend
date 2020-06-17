@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import {
   Button,  
   Form,  
@@ -13,9 +14,15 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const jsonSend = { email, password }
-    console.log(jsonSend);
-    alert('Successful login');
+    const jsonSend = { email, password };
+    try {
+      const axiosRes = await axios.post('https://cinta-negra-backend.herokuapp.com/api/v1/login', jsonSend);
+      const { token } = axiosRes.data;
+      console.log(token);
+      alert('Successful login');
+    } catch (error) {
+      alert('Error on login');
+    }
   };
 
   return (
